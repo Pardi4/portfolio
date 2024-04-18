@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="DarkMode">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="load">
+        <div class="animbg">
+            <div id="box1"></div>
+            <div id="box2"></div>
+        </div>
+    </div>
+    <div id="move" class="bg">
+        <div class="text1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam porro, cumque quas ab, error placeat officiis explicabo enim sequi eos, doloribus magnam eum! Possimus voluptas tempore, adipisci sunt provident consequuntur?</div>
+        <div class="menu">
+            <div class="part1">
+                <div><a href="#move">JAN KOWALSKI</a></div>
+            </div>
+            <div class="part2">
+                <a class="link" href="#me">O MNIE</a>
+                <a id="l1" class="link" href="#work">PRACA</a>
+                <a id="l2" class="link" href="#contact">KONTAKT</a>
+                <a target="_blank" style="margin-left: 10px;" target="_blank" href="https://github.com/"><div class="gh"></div></a>
+                <a target="_blank" href="https://discord.com"><div class="dc"></div></a>
+            </div>
+        </div>
+    </div>
+    <div id="me"class="content">
+        <div class="cnt1">
+            <div class="img"><div></div></div>
+        </div>
+        <div class="cnt2">
+            <img src="./photos/bg.png" alt="">
+            <h2 class="hidden" style="color: rgb(105, 25, 255); margin-bottom: 4px;">O mnie</h1>
+            <div class="Mcwrap hidden"><div class="typing"></div></div>
+            <div class="text2 hidden">Cześć! Jestem Jan Kowalski, programista z pasją do tworzenia oprogramowania. Specjalizuję się w rozwijaniu aplikacji webowych i rozwiązywaniu problemów związanych z programowaniem. Obecnie pracuję nad projektami z wykorzystaniem najnowszych technologii, aby dostarczyć użytkownikom wyjątkowe i intuicyjne aplikacje internetowe.</div>
+        </div>
+    </div>
+    <div id="work" class="cards">
+        <h1 class="text3 hidden1">MOJE PROJEKTY</h1>
+        <div class="cnt3">
+            <div class="hidden hovercard">
+                <div class="cardimg1"></div>
+                <div class="card1">
+                    <div>KALKULATOR</div>
+                    <a target="_blank" href="./kalk/index.html">ZOBACZ</a>
+                </div>
+            </div>
+            <div class="hidden2 hovercard">
+                <div class="cardimg1"></div>
+                <div class="card1">
+                    <div>KALKULATOR</div>
+                    <a target="_blank" href="./kalk/index.html">ZOBACZ</a>
+                </div>
+            </div>
+            <div class="hidden3 hovercard">
+                <div class="cardimg1"></div>
+                <div class="card1">
+                    <div>KALKULATOR</div>
+                    <a target="_blank" href="./kalk/index.html">ZOBACZ</a>
+                </div>
+            </div>
+            <div style="justify-content: flex-start;" class="hidden4 hovercard">
+                <div class="cardimg2"></div>
+                <div class="card2">
+                    <div>KALKULATOR</div>
+                    <a target="_blank" href="./kalk/index.html">ZOBACZ</a>
+                </div>
+            </div>
+            <div style="justify-content: flex-start;" class="hidden5 hovercard">
+                <div class="cardimg2"></div>
+                <div class="card2">
+                    <div>KALKULATOR</div>
+                    <a target="_blank" href="./kalk/index.html">ZOBACZ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="contact">
+
+    </div>
+    <script>
+        const text = document.querySelector(".text1");
+        window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 1200.9) {
+        text.style.opacity = 0;
+  } else {
+    text.style.opacity = 1;
+  }
+});
+    </script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }else{
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        const hiddenElements1 = document.querySelectorAll('.hidden1');
+        hiddenElements1.forEach((el) => observer.observe(el))
+        hiddenElements.forEach((el) => observer.observe(el));
+        const hiddenElements2 = document.querySelectorAll('.hidden2');
+        hiddenElements2.forEach((el) => observer.observe(el))
+        const hiddenElements3 = document.querySelectorAll('.hidden3');
+        hiddenElements3.forEach((el) => observer.observe(el))
+        const hiddenElements4 = document.querySelectorAll('.hidden4');
+        hiddenElements4.forEach((el) => observer.observe(el))
+        const hiddenElements5 = document.querySelectorAll('.hidden5');
+        hiddenElements5.forEach((el) => observer.observe(el))
+    </script>
+    <script>
+        const menu = document.querySelector(".menu");
+        window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 1200.9) {
+        menu.style.background = '#0f1922cc';
+  } else {
+    menu.style.background = 'none';
+  }
+});
+    </script>
+    <script>
+        const section = document.getElementById('move');
+        section.addEventListener('mousemove', (e) =>{   
+            const moveX = (e.pageX * -1 / 25);
+            const moveY = (e.pageY * -1 / 25);
+            section.style.backgroundPosition = moveX + 10 + 'px ' + moveY + 'px';
+        });
+    </script>
+</body>
+</html>
